@@ -28,6 +28,8 @@ namespace WPFUI
             InitializeComponent();
 
             _gameSession = new GameSession;
+
+            DataContext = _gameSession;
         }
     }
 }
