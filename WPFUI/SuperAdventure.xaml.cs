@@ -26,6 +26,8 @@ namespace WPFUI
         public MainWindow()
         {
             InitializeComponent();
+
+            _gameSession = new GameSession;
         }
     }
 }
