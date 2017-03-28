@@ -36,17 +36,17 @@
             </Grid.ColumnDefinitions>
             
             <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="name value"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="Class:"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="class value"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="Hit points:"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="hit points value"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="Gold:"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="gold value"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="XP:"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="xp value"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="Level:"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="level value"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="name value"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Class:"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="class value"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Hit points:"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="hit points value"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Gold:"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="gold value"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="XP:"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="xp value"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Level:"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="level value"/>
         </Grid>
 
         <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="Beige"/>
