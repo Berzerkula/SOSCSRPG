@@ -8,5 +8,6 @@ namespace Engine.Models
 {
     public class World
     {
+        private List<Location> _locations = new List<Location>();
     }
 }
