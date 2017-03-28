@@ -10,5 +10,10 @@ namespace Engine.ViewModels
     class GameSession
     {
         Player CurrentPlayer { get; set; }
+
+        public GameSession()
+        {
+            CurrentPlayer = new Player();
+        }
     }
 }
