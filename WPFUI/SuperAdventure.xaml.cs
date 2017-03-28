@@ -17,7 +17,7 @@ using Engine.ViewModels;
 namespace WPFUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SuperAdventure.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
