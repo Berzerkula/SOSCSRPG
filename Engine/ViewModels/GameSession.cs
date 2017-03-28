@@ -14,7 +14,7 @@ namespace Engine.ViewModels
         public GameSession()
         {
             CurrentPlayer = new Player();
-            CurrentPlayer.Name = "Berzerkula";
+            CurrentPlayer.Name = "Gilgamesh";
             CurrentPlayer.CharacterClass = "Fighter";
             CurrentPlayer.HitPoints = 10;
             CurrentPlayer.Gold = 1000000;
