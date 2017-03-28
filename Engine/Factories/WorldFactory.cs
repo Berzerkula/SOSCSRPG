@@ -13,6 +13,7 @@ namespace Engine.Factories
         {
             World newWorld = new World();
 
+            newWorld.AddLocation(0, -1, "Home", "This is your home. It is full of spider webs.", "/Engine;component/Image/Locations/Home.png");
             return newWorld;
         }
     }
