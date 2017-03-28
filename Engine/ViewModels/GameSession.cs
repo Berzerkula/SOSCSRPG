@@ -14,6 +14,7 @@ namespace Engine.ViewModels
         public GameSession()
         {
             CurrentPlayer = new Player();
+            CurrentPlayer.Name = "Berzerkula";
         }
     }
 }
