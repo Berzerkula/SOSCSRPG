@@ -9,5 +9,9 @@ namespace Engine.Factories
 {
     internal class WorldFactory
     {
+        internal World CreateWorld()
+        {
+            return new World();
+        }
     }
 }
