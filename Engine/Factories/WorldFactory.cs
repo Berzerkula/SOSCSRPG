@@ -11,7 +11,9 @@ namespace Engine.Factories
     {
         internal World CreateWorld()
         {
-            return new World();
+            World newWorld = new World();
+
+            return newWorld;
         }
     }
 }
