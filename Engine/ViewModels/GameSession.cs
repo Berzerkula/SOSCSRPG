@@ -11,6 +11,7 @@ namespace Engine.ViewModels
     {
         public Player CurrentPlayer { get; set; }
         public Location CurrentLocation { get; set; }
+        public World CurrentWorld { get; set; }
 
         public GameSession()
         {
@@ -28,6 +29,8 @@ namespace Engine.ViewModels
             CurrentLocation.YCoordinate = -1;
             CurrentLocation.Description = "This is your home full of spider webs.";
             CurrentLocation.ImageName = "/Engine;component/Images/Locations/Home.png";
+
+            CurrentWorld = new World();
         }
     }
 }
