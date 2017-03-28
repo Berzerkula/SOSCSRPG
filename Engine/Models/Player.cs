@@ -9,10 +9,22 @@ namespace Engine.Models
 {
     public class Player : INotifyPropertyChanged
     {
+        private int _experiencePoints;
+
+
         public string Name { get; set; }
         public string CharacterClass { get; set; }
         public int HitPoints { get; set; }
-        public int ExperiencePoints { get; set; }
+        public int ExperiencePoints
+        {
+            get { return _experiencePoints; }
+            set
+            {
+                _experiencePoints = value;
+                OnPropertyChanged("ExperiencePoints");
+            }
+        }
+
         public int Level { get; set; }
         public int Gold { get; set; }
 
