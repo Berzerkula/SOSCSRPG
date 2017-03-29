@@ -35,7 +35,7 @@ namespace Engine.Factories
 
             newWorld.AddLocation(1, 0, "Town Gate",
                 "There is a gate protecting the town from giant arachnids.",
-                "Engine;component/Images/Locations/TownGate.png");
+                "/Engine;component/Images/Locations/TownGate.png");
 
             newWorld.AddLocation(2, 0, "Spider Forest",
                 "The trees in this forest are covered with spider webs.",
@@ -43,11 +43,11 @@ namespace Engine.Factories
 
             newWorld.AddLocation(0, 1, "Herbalist's hut",
                 "You see a quaint hut, with vines covering it.",
-                "Engine;component/Images/Locations/HerbalistsHut.png");
+                "/Engine;component/Images/Locations/HerbalistsHut.png");
 
             newWorld.AddLocation(0, 2, "Herbalist's Garden",
                 "Plants provide refuge for the snakes inhabiting the garden.",
-                "Engine;component/Images/Locations/HerbalistsGarden.png");
+                "/Engine;component/Images/Locations/HerbalistsGarden.png");
 
             return newWorld;
         }
