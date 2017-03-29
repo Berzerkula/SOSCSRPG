@@ -72,7 +72,7 @@ namespace Engine.ViewModels
                 HitPoints = 10,
                 Gold = 1000000,
                 ExperiencePoints = 0,
-                Level = "1"
+                Level = 1
             };
             
             WorldFactory factory = new WorldFactory();
