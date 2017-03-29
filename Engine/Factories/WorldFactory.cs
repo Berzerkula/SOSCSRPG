@@ -18,7 +18,7 @@ namespace Engine.Factories
                 "/Engine;component/Images/Locations/FarmFields.png");
 
             newWorld.AddLocation(-1, -1, "Farmer's House",
-                "This is the house of your neighbor, Farmer Cornusk.",
+                "This is the house of your neighbor, Farmer Cornhusk.",
                 "/Engine;component/Images/Locations/Farmhouse.png");
 
             newWorld.AddLocation(0, -1, "Home",
