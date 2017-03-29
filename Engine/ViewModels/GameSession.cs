@@ -15,6 +15,7 @@ namespace Engine.ViewModels
 
         public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
+
         public Location CurrentLocation
         {
             get { return _currentLocation; }
@@ -22,6 +23,38 @@ namespace Engine.ViewModels
             {
                 _currentLocation = value;
                 OnPropertyChanged("CurrentLocation");
+            }
+        }
+
+        public bool HasLocationToNorth
+        {
+            get
+            {
+                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
+            }
+        }
+
+        public bool HasLocationToSouth
+        {
+            get
+            {
+                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
+            }
+        }
+
+        public bool HasLocationToEast
+        {
+            get
+            {
+                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
+            }
+        }
+
+        public bool HasLocationToWest
+        {
+            get
+            {
+                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
             }
         }
 
