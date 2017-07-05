@@ -45,6 +45,8 @@ namespace Engine.Factories
                 "You see a quaint hut, with vines covering it.",
                 "/Engine;component/Images/Locations/HerbalistsHut.png");
 
+            newWorld.LocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
+
             newWorld.AddLocation(0, 2, "Herbalist's Garden",
                 "Plants provide refuge for the snakes inhabiting the garden.",
                 "/Engine;component/Images/Locations/HerbalistsGarden.png");
