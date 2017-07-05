@@ -81,9 +81,9 @@ namespace Engine.ViewModels
             CurrentLocation = CurrentWorld.LocationAt(0, -1);
 
             //Remove after test. This is for player inventory tab testing.
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1000));
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
+            //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1000));
+            //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+            //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
         }
 
         public void MoveNorth()
