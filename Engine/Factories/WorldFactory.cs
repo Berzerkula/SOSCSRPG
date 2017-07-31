@@ -21,6 +21,8 @@ namespace Engine.Factories
                 "This is the house of your neighbor, Farmer Cornhusk.",
                 "/Engine;component/Images/Locations/Farmhouse.png");
 
+            newWorld.LocationAt(-1, -1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(2));
+
             newWorld.AddLocation(0, -1, "Home",
                 "This is your home. It is full of spider webs.",
                 "/Engine;component/Images/Locations/Home.png");

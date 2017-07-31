@@ -27,6 +27,13 @@ namespace Engine.Factories
                 itemsToComplete,
                 25, 10,
                 rewardItems));
+
+            _quests.Add(new Quest(2,
+                "Clear the farmer's field",
+                "Defeat the rats in the Farmer's field",
+                itemsToComplete,
+                25, 10,
+                rewardItems));
         }
 
         internal static Quest GetQuestByID(int id)
