@@ -24,6 +24,9 @@ namespace Engine.Models
             }
         }
 
+        public int MinimumDamage { get; set; }
+        public int MaximumDamage { get; set; }
+
         public int RewardExperiencePoints { get; private set; }
         public int RewardGold { get; private set; }
 
@@ -38,6 +41,8 @@ namespace Engine.Models
             ImageName = string.Format("/Engine;component/Images/Monsters/{0}", imageName);
             MaximumHitPoints = maximumHitPoints;
             HitPoints = hitPoints;
+            MinimumDamage = minimumDamage;
+            MaximumDamage = maximumDamage;
             RewardExperiencePoints = rewardExperiencePoints;
             RewardGold = rewardGold;
 
