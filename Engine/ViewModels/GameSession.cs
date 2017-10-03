@@ -93,11 +93,6 @@ namespace Engine.ViewModels
             CurrentWorld = WorldFactory.CreateWorld();
 
             CurrentLocation = CurrentWorld.LocationAt(0, -1);
-
-            //Remove after test. This is for player inventory tab testing.
-            //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1000));
-            //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
-            //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
         }
 
         public void MoveNorth()
@@ -168,7 +163,7 @@ namespace Engine.ViewModels
                             GameItem rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
 
                             CurrentPlayer.AddItemToInventory(rewardItem);
-                            RaiseMessage($"You receive a {rewardItem}");
+                            RaiseMessage($"You receive a {rewardItem.Name}");
                         }
 
                         // Mark the Quest as completed
@@ -180,9 +175,9 @@ namespace Engine.ViewModels
 
         private void GivePlayerQuestsAtLocation()
         {
-            foreach(Quest quest in CurrentLocation.QuestsAvailableHere)
+            foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
             {
-                if(!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+                if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
                 {
                     CurrentPlayer.Quests.Add(new QuestStatus(quest));
 
@@ -191,7 +186,15 @@ namespace Engine.ViewModels
                     RaiseMessage(quest.Description);
 
                     RaiseMessage("Return with:");
-                    foreach(ItemQuantity itemQuantity in quest.ItemsToComplete)
+                    foreach (ItemQuantity itemQuantity in quest.ItemsToComplete)
+                    {
+                        RaiseMessage($"   {itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID).Name}");
+                    }
+
+                    RaiseMessage("And you will receive:");
+                    RaiseMessage($"   {quest.RewardExperiencePoints} experience points");
+                    RaiseMessage($"   {quest.RewardGold} gold");
+                    foreach (ItemQuantity itemQuantity in quest.RewardItems)
                     {
                         RaiseMessage($"   {itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID).Name}");
                     }
