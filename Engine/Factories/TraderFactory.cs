@@ -16,8 +16,8 @@ namespace Engine.Factories
             Trader susan = new Trader("Susan");
             susan.AddItemToInventory(ItemFactory.CreateGameItem(1001));
 
-            Trader farmerTed = new Trader("Farmer Cornhusk");
-            farmerTed.AddItemToInventory(ItemFactory.CreateGameItem(1001));
+            Trader farmerCornhusk = new Trader("Farmer Cornhusk");
+            farmerCornhusk.AddItemToInventory(ItemFactory.CreateGameItem(1001));
 
             Trader peteTheHerbalist = new Trader("Pete the Herbalist");
             peteTheHerbalist.AddItemToInventory(ItemFactory.CreateGameItem(1001));
