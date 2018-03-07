@@ -2,7 +2,7 @@
 
 namespace Engine.Models
 {
-    class Trader : BaseNotificationClass
+    public class Trader : BaseNotificationClass
     {
         public string Name { get; set; }
 
