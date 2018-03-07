@@ -16,14 +16,14 @@ namespace Engine.Factories
             Trader susan = new Trader("Susan");
             susan.AddItemToInventory(ItemFactory.CreateGameItem(1001));
 
-            Trader farmerTed = new Trader("Farmer Ted");
+            Trader farmerTed = new Trader("Farmer Cornhusk");
             farmerTed.AddItemToInventory(ItemFactory.CreateGameItem(1001));
 
             Trader peteTheHerbalist = new Trader("Pete the Herbalist");
             peteTheHerbalist.AddItemToInventory(ItemFactory.CreateGameItem(1001));
 
             AddTraderToList(susan);
-            AddTraderToList(farmerTed);
+            AddTraderToList(farmerCornhusk);
             AddTraderToList(peteTheHerbalist);
         }
 
