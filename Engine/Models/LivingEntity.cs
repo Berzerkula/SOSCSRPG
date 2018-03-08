@@ -34,13 +34,13 @@ namespace Engine.Models
             }
         }
 
-        public int MaximumitPoints
+        public int MaximumHitPoints
         {
             get { return _maximumHitPoints; }
             set
             {
                 _maximumHitPoints = value;
-                OnPropertyChanged(nameof(MaximumitPoints));
+                OnPropertyChanged(nameof(MaximumHitPoints));
             }
         }
 
