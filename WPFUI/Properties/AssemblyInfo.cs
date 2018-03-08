@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("WPFUI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("FedEx")]
+[assembly: AssemblyCompany("Berzerkula.org")]
 [assembly: AssemblyProduct("WPFUI")]
-[assembly: AssemblyCopyright("Copyright © FedEx 2017")]
+[assembly: AssemblyCopyright("Copyright © Berzerkula.org 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
