@@ -102,6 +102,11 @@ namespace Engine.Models
             CurrentHitPoints = MaximumHitPoints;
         }
 
+        public void ReceiveGold(int amountOfGold)
+        {
+            Gold += amountOfGold;
+        }
+
         public void AddItemToInventory(GameItem item)
         {
             Inventory.Add(item);
