@@ -87,6 +87,16 @@ namespace Engine.Models
             }
         }
 
+        public void Heal(int hitPointsToHeal)
+        {
+            CurrentHitPoints += hitPointsToHeal;
+
+            if(CurrentHitPoints > MaximumHitPoints)
+            {
+                CurrentHitPoints = MaximumHitPoints;
+            }
+        }
+
         public void AddItemToInventory(GameItem item)
         {
             Inventory.Add(item);
