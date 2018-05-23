@@ -71,7 +71,17 @@ namespace Engine.Models
         {
             Inventory.Add(item);
 
-            OnPropertyChanged(nameof(Weapons));
+            if (item.IsUnique)
+            {
+                if(!GroupedInventory.Any(gi => gi.Item.ItemTypeID == item.ItemTypeID))
+                {
+                    GroupedInventory.Add(new GroupedInventoryItem(item, 0));
+                }
+
+                GroupedInventory.First(gi => gi.Item.ItemTypeID == item.ItemTypeID).Quantity++;
+            }
+
+                OnPropertyChanged(nameof(Weapons));
         }
 
         public void RemoveItemFromInventory(GameItem item)
