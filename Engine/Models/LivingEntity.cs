@@ -88,6 +88,21 @@ namespace Engine.Models
         {
             Inventory.Remove(item);
 
+            GroupedInventoryItem groupedInventoryItemToRemove =
+                GroupedInventory.FirstOrDefault(gi => gi.Item == item);
+
+            if(groupedInventoryItemToRemove != null)
+            {
+                if(groupedInventoryItemToRemove.Quantity == 1)
+                {
+                    GroupedInventory.Remove(groupedInventoryItemToRemove);
+                }
+                else
+                {
+                    groupedInventoryItemToRemove.Quantity--;
+                }
+            }
+
             OnPropertyChanged(nameof(Weapons));
         }
     }
