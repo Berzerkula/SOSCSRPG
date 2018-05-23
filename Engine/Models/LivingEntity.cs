@@ -61,6 +61,8 @@ namespace Engine.Models
         public List<GameItem> Weapons =>
             Inventory.Where(i => i is Weapon).ToList();
 
+        public bool IsDead => CurrentHitPoints <= 0;
+
         protected LivingEntity()
         {
             Inventory = new ObservableCollection<GameItem>();
