@@ -65,8 +65,13 @@ namespace Engine.Models
 
         public event EventHandler OnKilled;
 
-        protected LivingEntity()
+        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold)
         {
+            Name = name;
+            MaximumHitPoints = maximumHitPoints;
+            CurrentHitPoints = currentHitPoints;
+            Gold = gold;
+
             Inventory = new ObservableCollection<GameItem>();
             GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
         }
