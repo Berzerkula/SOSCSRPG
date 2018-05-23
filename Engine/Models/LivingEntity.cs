@@ -63,6 +63,8 @@ namespace Engine.Models
 
         public bool IsDead => CurrentHitPoints <= 0;
 
+        public event EventHandler OnKilled;
+
         protected LivingEntity()
         {
             Inventory = new ObservableCollection<GameItem>();
