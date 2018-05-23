@@ -117,16 +117,8 @@ namespace Engine.ViewModels
 
         public GameSession()
         {
-            CurrentPlayer = new Player
-            {
-                Name = "Gilgamesh",
-                CharacterClass = "Fighter",
-                CurrentHitPoints = 10,
-                Gold = 1000000,
-                ExperiencePoints = 0,
-                Level = 1
-            };
-
+            CurrentPlayer = new Player("Gilgamesh", "Fighter", 0, 10, 10, 1000000);
+            
             if (!CurrentPlayer.Weapons.Any())
             {
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1000));
