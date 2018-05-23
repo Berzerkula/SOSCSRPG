@@ -159,5 +159,10 @@ namespace Engine.Models
 
             OnPropertyChanged(nameof(Weapons));
         }
+
+        private void RaiseOnKilledEvent()
+        {
+            OnKilled?.Invoke(this, new System.EventArgs());
+        }
     }
 }
