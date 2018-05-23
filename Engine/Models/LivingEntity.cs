@@ -97,6 +97,11 @@ namespace Engine.Models
             }
         }
 
+        public void CopmletelyHeal()
+        {
+            CurrentHitPoints = MaximumHitPoints;
+        }
+
         public void AddItemToInventory(GameItem item)
         {
             Inventory.Add(item);
