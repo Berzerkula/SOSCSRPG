@@ -107,6 +107,16 @@ namespace Engine.Models
             Gold += amountOfGold;
         }
 
+        public void SpendGold(int amountOfGold)
+        {
+            if(amountOfGold > Gold)
+            {
+                throw new ArgumentOutOfRangeException($"{Name} only has {Gold} gold, and cannot spend {amountOfGold} gold");
+            }
+
+            Gold -= amountOfGold;
+        }
+
         public void AddItemToInventory(GameItem item)
         {
             Inventory.Add(item);
