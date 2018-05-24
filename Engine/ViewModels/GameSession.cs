@@ -290,7 +290,7 @@ namespace Engine.ViewModels
             RaiseMessage($"The {CurrentMonster.Name} killed you.");
 
             CurrentLocation = CurrentWorld.LocationAt(0, -1); // Player's home
-            CurrentPlayer.CurrentHitPoints = CurrentPlayer.Level * 10; // Completely heal the player
+            CurrentPlayer.CopmletelyHeal();
         }
 
         private void OnCurrentMonsterKilled(object sender, System.EventArgs eventArgs)
