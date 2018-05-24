@@ -36,7 +36,7 @@ namespace Engine.Models
 
         public ObservableCollection<QuestStatus> Quests { get; set; }
 
-        public event EventHandler OnLevledUp;
+        public event EventHandler OnLeveledUp;
 
         public Player(string name, string characterClass, int experiencePoints,
             int maximumHitPoints, int currentHitPoints, int gold) :
