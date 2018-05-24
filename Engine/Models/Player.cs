@@ -76,7 +76,7 @@ namespace Engine.Models
             {
                 MaximumHitPoints = Level * 10;
 
-                OnLevledUp?.Invoke(this, System.EventArgs.Empty);
+                OnLeveledUp?.Invoke(this, System.EventArgs.Empty);
             }
         }
     }
