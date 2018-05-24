@@ -26,7 +26,7 @@ namespace Engine.Models
         public int ExperiencePoints
         {
             get { return _experiencePoints; }
-            set
+            private set
             {
                 _experiencePoints = value;
                 OnPropertyChanged(nameof(ExperiencePoints));
