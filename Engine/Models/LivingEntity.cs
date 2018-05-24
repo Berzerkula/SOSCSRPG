@@ -65,9 +65,9 @@ namespace Engine.Models
             }
         }
 
-        public ObservableCollection<GameItem> Inventory { get; set; }
+        public ObservableCollection<GameItem> Inventory { get; }
 
-        public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; set; }
+        public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
 
         public List<GameItem> Weapons =>
             Inventory.Where(i => i is Weapon).ToList();
