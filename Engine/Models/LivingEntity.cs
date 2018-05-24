@@ -110,7 +110,7 @@ namespace Engine.Models
             }
         }
 
-        public void CopmletelyHeal()
+        public void CompletelyHeal()
         {
             CurrentHitPoints = MaximumHitPoints;
         }

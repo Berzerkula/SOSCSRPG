@@ -292,7 +292,7 @@ namespace Engine.ViewModels
             RaiseMessage($"You have been killed.");
 
             CurrentLocation = CurrentWorld.LocationAt(0, -1); // Player's home
-            CurrentPlayer.CopmletelyHeal();
+            CurrentPlayer.CompletelyHeal();
         }
 
         private void OnCurrentMonsterKilled(object sender, System.EventArgs eventArgs)
@@ -316,6 +316,7 @@ namespace Engine.ViewModels
         private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs)
         {
             RaiseMessage($"You are now level {CurrentPlayer.Level}!");
+            CurrentPlayer.CompletelyHeal();
         }
 
         private void RaiseMessage(string message)
