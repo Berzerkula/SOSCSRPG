@@ -59,5 +59,10 @@ namespace Engine.Models
 
             return true;
         }
+
+        public void AddExperience(int experiencePoints)
+        {
+            ExperiencePoints += experiencePoints;
+        }
     }
 }
