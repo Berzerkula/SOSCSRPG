@@ -30,6 +30,7 @@ namespace Engine.Models
             {
                 _experiencePoints = value;
                 OnPropertyChanged(nameof(ExperiencePoints));
+                SetLevelAndMaximumHitPoints();
             }
         }
 
@@ -63,6 +64,20 @@ namespace Engine.Models
         public void AddExperience(int experiencePoints)
         {
             ExperiencePoints += experiencePoints;
+        }
+
+        private void SetLevelAndMaximumHitPoints()
+        {
+            int originalLevel = Level;
+
+            Level = (ExperiencePoints / 100) + 1;
+
+            if (Level != originalLevel)
+            {
+                MaximumHitPoints = Level * 10;
+
+                OnLevledUp?.Invoke(this, System.EventArgs.Empty);
+            }
         }
     }
 }
