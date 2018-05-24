@@ -186,8 +186,8 @@ namespace Engine.ViewModels
                         RaiseMessage($"You completed the '{quest.Name}' quest");
 
                         // Give the player the quest rewards
-                        CurrentPlayer.ExperiencePoints += quest.RewardExperiencePoints;
                         RaiseMessage($"You receive {quest.RewardExperiencePoints} experience points");
+                        CurrentPlayer.AddExperience(quest.RewardExperiencePoints);
 
                         CurrentPlayer.Gold += quest.RewardGold;
                         RaiseMessage($"You receive {quest.RewardGold} gold");
@@ -299,7 +299,7 @@ namespace Engine.ViewModels
             RaiseMessage($"You defeated the {CurrentMonster.Name}!");
 
             RaiseMessage($"You receive {CurrentMonster.RewardExperiencePoints} experience points");
-            CurrentPlayer.ExperiencePoints += CurrentMonster.RewardExperiencePoints;
+            CurrentPlayer.AddExperience(CurrentMonster.RewardExperiencePoints);
 
             RaiseMessage($"You receive {CurrentMonster.Gold} gold.");
             CurrentPlayer.ReceiveGold(CurrentMonster.Gold);
