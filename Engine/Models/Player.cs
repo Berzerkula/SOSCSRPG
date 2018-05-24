@@ -12,7 +12,6 @@ namespace Engine.Models
     {
         private string _characterClass;
         private int _experiencePoints;
-        private int _level;
 
         public string CharacterClass
         {
@@ -31,16 +30,6 @@ namespace Engine.Models
             {
                 _experiencePoints = value;
                 OnPropertyChanged(nameof(ExperiencePoints));
-            }
-        }
-
-        public int Level
-        {
-            get { return _level; }
-            set
-            {
-                _level = value;
-                OnPropertyChanged(nameof(Level));
             }
         }
 
