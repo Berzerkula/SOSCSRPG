@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Engine.Models;
 
 namespace Engine.Actions
 {
-    class AttackWithWeapon
+    public class AttackWithWeapon
     {
         private readonly GameItem _weapon;
         private readonly int _maximumDamage;
@@ -17,17 +13,17 @@ namespace Engine.Actions
 
         public AttackWithWeapon(GameItem weapon, int minimumDamage, int maximumDamage)
         {
-            if (weapon.Category != GameItem.ItemCategory.Weapon)
+            if(weapon.Category != GameItem.ItemCategory.Weapon)
             {
                 throw new ArgumentException($"{weapon.Name} is not a weapon");
             }
 
-            if (_minimumDamage < 0)
+            if(_minimumDamage < 0)
             {
                 throw new ArgumentException("minimumDamage must be 0 or larger");
             }
 
-            if (_maximumDamage < _minimumDamage)
+            if(_maximumDamage < _minimumDamage)
             {
                 throw new ArgumentException("maximumDamage must be >= minimumDamage");
             }
@@ -41,11 +37,14 @@ namespace Engine.Actions
         {
             int damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
 
-            if (damage == 0)
+            if(damage == 0)
             {
                 ReportResult($"You missed the {target.Name.ToLower()}.");
-            } else{
+            }
+            else
+            {
                 ReportResult($"You hit the {target.Name.ToLower()} for {damage} points.");
+                target.TakeDamage(damage);
             }
         }
 
