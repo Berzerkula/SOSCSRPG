@@ -7,7 +7,7 @@ using Engine.Models;
 
 namespace Engine.Actions
 {
-    interface IAction
+    public interface IAction
     {
         event EventHandler<string> OnActionPerformed;
         void Execute(LivingEntity actor, LivingEntity target);
