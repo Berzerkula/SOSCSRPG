@@ -79,7 +79,7 @@ namespace Engine.ViewModels
                     _currentMonster.OnKilled += OnCurrentMonsterKilled;
 
                     RaiseMessage("");
-                    RaiseMessage($"You see a {CurrentMonster} here!");
+                    RaiseMessage($"You see a {CurrentMonster.Name} here!");
                 }
 
                 OnPropertyChanged();
