@@ -14,16 +14,25 @@ namespace Engine.Factories
 
         static ItemFactory()
         {
+            //Player weapons
             BuildWeapon(1000, "Jagged Rock", 1, 1, 3);
             BuildWeapon(1001, "Pointy Stick", 1, 1, 2);
             BuildWeapon(1002, "Rusty Sword", 5, 1, 3);
 
+            //Monster weapons
             BuildWeapon(1501, "Snake fangs", 0, 0, 2);
             BuildWeapon(1502, "Rat claws", 0, 0, 2);
             BuildWeapon(1503, "Spider fangs", 0, 0, 4);
 
+            //Recipe items
+            BuildMiscellaneousItem(3001, "Oats", 1);
+            BuildMiscellaneousItem(3002, "honey", 2);
+            BuildMiscellaneousItem(3003, "Raisins", 2);
+
+            //Healing items
             BuildHealingItem(2001, "Granola bar", 5, 2);
 
+            //Lootable items
             BuildMiscellaneousItem(9000, "Snake fang", 1);
             BuildMiscellaneousItem(9001, "Snakeskin", 2);
             BuildMiscellaneousItem(9002, "Rat tail", 1);
