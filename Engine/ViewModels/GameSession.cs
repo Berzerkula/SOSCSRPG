@@ -247,7 +247,12 @@ namespace Engine.ViewModels
 
         public void AttackCurrentMonster()
         {
-            if(CurrentPlayer.CurrentWeapon == null)
+            if (CurrentMonster == null)
+            {
+                return;
+            }
+
+            if (CurrentPlayer.CurrentWeapon == null)
             {
                 RaiseMessage("You must select a weapon, to attack.");
                 return;
@@ -255,7 +260,7 @@ namespace Engine.ViewModels
 
             CurrentPlayer.UseCurrentWeaponOn(CurrentMonster);
 
-            if(CurrentMonster.IsDead)
+            if (CurrentMonster.IsDead)
             {
                 // Get another monster to fight
                 GetMonsterAtLocation();
@@ -268,7 +273,10 @@ namespace Engine.ViewModels
 
         public void UseCurrentConsumable()
         {
-            CurrentPlayer.UseCurrentConsumable();
+            if (CurrentPlayer.CurrentConsumable != null)
+            {
+                CurrentPlayer.UseCurrentConsumable();
+            }
         }
 
         public void CraftItemUsing(Recipe recipe)
