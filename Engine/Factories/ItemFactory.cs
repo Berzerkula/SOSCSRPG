@@ -11,25 +11,25 @@ namespace Engine.Factories
 
         static ItemFactory()
         {
-            BuildWeapon(1001, "Pointy Stick", 1, 1, 2);
-            BuildWeapon(1002, "Rusty Sword", 5, 1, 3);
+            BuildWeapon(1000, "Pointy Stick", 1, 1, 2);
+            BuildWeapon(1001, "Rusty Sword", 5, 1, 3);
 
-            BuildWeapon(1501, "Snake fangs", 0, 0, 2);
-            BuildWeapon(1502, "Rat claws", 0, 0, 2);
-            BuildWeapon(1503, "Spider fangs", 0, 0, 4);
+            BuildWeapon(1500, "Snake fangs", 0, 0, 2);
+            BuildWeapon(1501, "Rat claws", 0, 0, 2);
+            BuildWeapon(1502, "Spider fangs", 0, 0, 4);
 
-            BuildHealingItem(2001, "Granola bar", 5, 2);
+            BuildHealingItem(2000, "Granola bar", 5, 2);
 
-            BuildMiscellaneousItem(3001, "Oats", 1);
-            BuildMiscellaneousItem(3002, "Honey", 2);
-            BuildMiscellaneousItem(3003, "Raisins", 2);
+            BuildMiscellaneousItem(3000, "Oats", 1);
+            BuildMiscellaneousItem(3001, "Honey", 2);
+            BuildMiscellaneousItem(3002, "Raisins", 2);
 
-            BuildMiscellaneousItem(9001, "Snake fang", 1);
-            BuildMiscellaneousItem(9002, "Snakeskin", 2);
-            BuildMiscellaneousItem(9003, "Rat tail", 1);
-            BuildMiscellaneousItem(9004, "Rat fur", 2);
-            BuildMiscellaneousItem(9005, "Spider fang", 1);
-            BuildMiscellaneousItem(9006, "Spider silk", 2);
+            BuildMiscellaneousItem(9000, "Snake fang", 1);
+            BuildMiscellaneousItem(9001, "Snakeskin", 2);
+            BuildMiscellaneousItem(9002, "Rat tail", 1);
+            BuildMiscellaneousItem(9003, "Rat fur", 2);
+            BuildMiscellaneousItem(9004, "Spider fang", 1);
+            BuildMiscellaneousItem(9005, "Spider silk", 2);
         }
 
         public static GameItem CreateGameItem(int itemTypeID)

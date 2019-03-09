@@ -14,10 +14,10 @@ namespace Engine.Factories
         static RecipeFactory()
         {
             Recipe granolaBar = new Recipe(1, "Granola bar");
+            granolaBar.AddIngredient(3000, 1);
             granolaBar.AddIngredient(3001, 1);
             granolaBar.AddIngredient(3002, 1);
-            granolaBar.AddIngredient(3003, 1);
-            granolaBar.AddIngredient(2001, 1);
+            granolaBar.AddOutputItem(2000, 1);
 
             _recipes.Add(granolaBar);
         }

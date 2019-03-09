@@ -20,7 +20,7 @@ namespace Engine.Factories
 
             snakeItemsToComplete.Add(new ItemQuantity(9000, 5)); //Snake fang
             ratItemsToComplete.Add(new ItemQuantity(9002, 5)); //Rat tail
-            rewardItems.Add(new ItemQuantity(1002, 1));     //Rusty sword reward for both quests
+            rewardItems.Add(new ItemQuantity(1001, 1));     //Rusty sword reward for both quests
 
             // Create the quest
             _quests.Add(new Quest(1,
