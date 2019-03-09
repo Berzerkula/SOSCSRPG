@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using Engine.Actions;
 using Engine.Models;
+using Engine.Shared;
 
 namespace Engine.Factories
 {
@@ -58,28 +59,6 @@ namespace Engine.Factories
             return _standardGameItems.FirstOrDefault(item => item.ItemTypeID == itemTypeID)?.Clone();
         }
 
-        private static void BuildMiscellaneousItem(int id, string name, int price)
-        {
-            _standardGameItems.Add(new GameItem(GameItem.ItemCategory.Miscellaneous, id, name, price));
-        }
-
-        private static void BuildWeapon(int id, string name, int price, 
-                                        int minimumDamage, int maximumDamage)
-        {
-            GameItem weapon = new GameItem(GameItem.ItemCategory.Weapon, id, name, price, true);
-
-            weapon.Action = new AttackWithWeapon(weapon, minimumDamage, maximumDamage);
-
-            _standardGameItems.Add(weapon);
-        }
-
-        private static void BuildHealingItem(int id, string name, int price, int hitPointsToHeal)
-        {
-            GameItem item = new GameItem(GameItem.ItemCategory.Consumable, id, name, price);
-            item.Action = new Heal(item, hitPointsToHeal);
-            _standardGameItems.Add(item);
-        }
-
         public static string ItemName(int itemTypeID)
         {
             return _standardGameItems.FirstOrDefault(i => i.ItemTypeID == itemTypeID)?.Name ?? "";
@@ -98,23 +77,23 @@ namespace Engine.Factories
 
                 GameItem gameItem =
                     new GameItem(itemCategory,
-                                  GetXmlAttributeAsInt(node, "ID"),
-                                  GetXmlAttributeAsString(node, "Name"),
-                                  GetXmlAttributeAsInt(node, "Price"),
+                                 node.AttributeAsInt("ID"),
+                                 node.AttributeAsString("Name"),
+                                 node.AttributeAsInt("Price"),
                                   itemCategory == GameItem.ItemCategory.Weapon);
 
                 if(itemCategory == GameItem.ItemCategory.Weapon)
                 {
                     gameItem.Action =
                         new AttackWithWeapon(gameItem,
-                                             GetXmlAttributeAsInt(node, "MinimumDamage"),
-                                             GetXmlAttributeAsInt(node, "MaximumDamage"));
+                                             node.AttributeAsInt("MinimumDamage"),
+                                             node.AttributeAsInt("MaximumDamage"));
                 }
                 else if(itemCategory == GameItem.ItemCategory.Consumable)
                 {
                     gameItem.Action =
                         new Heal(gameItem,
-                                 GetXmlAttributeAsInt(node, "HitPointsToHeal"));
+                                 node.AttributeAsInt("HitPointsToHeal"));
                 }
 
                 _standardGameItems.Add(gameItem);
