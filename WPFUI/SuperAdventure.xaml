@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         FontSize="9pt"
         FontFamily="Lucida Console"
-        Title="SuperAdventureWPF" Height="768" Width="1024">
+        Title="SuperAdventureWPF" Height="768" Width="1024"
+        KeyDown="MainWindow_OnKeyDown">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
