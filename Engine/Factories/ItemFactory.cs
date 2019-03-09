@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Engine.Actions;
 using Engine.Models;
 
@@ -14,37 +11,30 @@ namespace Engine.Factories
 
         static ItemFactory()
         {
-            //Player weapons
-            BuildWeapon(1000, "Jagged Rock", 1, 1, 3);
             BuildWeapon(1001, "Pointy Stick", 1, 1, 2);
             BuildWeapon(1002, "Rusty Sword", 5, 1, 3);
 
-            //Monster weapons
             BuildWeapon(1501, "Snake fangs", 0, 0, 2);
             BuildWeapon(1502, "Rat claws", 0, 0, 2);
             BuildWeapon(1503, "Spider fangs", 0, 0, 4);
 
-            //Recipe items
-            BuildMiscellaneousItem(3001, "Oats", 1);
-            BuildMiscellaneousItem(3002, "honey", 2);
-            BuildMiscellaneousItem(3003, "Raisins", 2);
-
-            //Healing items
             BuildHealingItem(2001, "Granola bar", 5, 2);
 
-            //Lootable items
-            BuildMiscellaneousItem(9000, "Snake fang", 1);
-            BuildMiscellaneousItem(9001, "Snakeskin", 2);
-            BuildMiscellaneousItem(9002, "Rat tail", 1);
-            BuildMiscellaneousItem(9003, "Rat fur", 2);
-            BuildMiscellaneousItem(9004, "Spider fang", 1);
-            BuildMiscellaneousItem(9005, "Spider silk", 2);
+            BuildMiscellaneousItem(3001, "Oats", 1);
+            BuildMiscellaneousItem(3002, "Honey", 2);
+            BuildMiscellaneousItem(3003, "Raisins", 2);
+
+            BuildMiscellaneousItem(9001, "Snake fang", 1);
+            BuildMiscellaneousItem(9002, "Snakeskin", 2);
+            BuildMiscellaneousItem(9003, "Rat tail", 1);
+            BuildMiscellaneousItem(9004, "Rat fur", 2);
+            BuildMiscellaneousItem(9005, "Spider fang", 1);
+            BuildMiscellaneousItem(9006, "Spider silk", 2);
         }
 
         public static GameItem CreateGameItem(int itemTypeID)
         {
             return _standardGameItems.FirstOrDefault(item => item.ItemTypeID == itemTypeID)?.Clone();
-
         }
 
         private static void BuildMiscellaneousItem(int id, string name, int price)
@@ -52,8 +42,8 @@ namespace Engine.Factories
             _standardGameItems.Add(new GameItem(GameItem.ItemCategory.Miscellaneous, id, name, price));
         }
 
-        private static void BuildWeapon(int id, string name, int price,
-            int minimumDamage, int maximumDamage)
+        private static void BuildWeapon(int id, string name, int price, 
+                                        int minimumDamage, int maximumDamage)
         {
             GameItem weapon = new GameItem(GameItem.ItemCategory.Weapon, id, name, price, true);
 
@@ -67,6 +57,11 @@ namespace Engine.Factories
             GameItem item = new GameItem(GameItem.ItemCategory.Consumable, id, name, price);
             item.Action = new Heal(item, hitPointsToHeal);
             _standardGameItems.Add(item);
+        }
+
+        public static string ItemName(int itemTypeID)
+        {
+            return _standardGameItems.FirstOrDefault(i => i.ItemTypeID == itemTypeID)?.Name ?? "";
         }
     }
 }
