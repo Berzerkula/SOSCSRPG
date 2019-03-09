@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Engine.Models
 {
     public class Player : LivingEntity
     {
+        #region Properties
+
         private string _characterClass;
         private int _experiencePoints;
 
@@ -29,7 +27,9 @@ namespace Engine.Models
             private set
             {
                 _experiencePoints = value;
+
                 OnPropertyChanged();
+
                 SetLevelAndMaximumHitPoints();
             }
         }
@@ -38,10 +38,12 @@ namespace Engine.Models
 
         public ObservableCollection<Recipe> Recipes { get; }
 
+        #endregion
+
         public event EventHandler OnLeveledUp;
 
         public Player(string name, string characterClass, int experiencePoints,
-            int maximumHitPoints, int currentHitPoints, int gold) :
+                      int maximumHitPoints, int currentHitPoints, int gold) : 
             base(name, maximumHitPoints, currentHitPoints, gold)
         {
             CharacterClass = characterClass;
@@ -49,19 +51,6 @@ namespace Engine.Models
 
             Quests = new ObservableCollection<QuestStatus>();
             Recipes = new ObservableCollection<Recipe>();
-        }
-
-        public bool HasAllTheseItems(List<ItemQuantity> items)
-        {
-            foreach (ItemQuantity item in items)
-            {
-                if (Inventory.Count(i => i.ItemTypeID == item.ItemID) < item.Quantity)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
 
         public void AddExperience(int experiencePoints)
