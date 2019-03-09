@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Engine.Models
 {
     public abstract class LivingEntity : BaseNotificationClass
     {
+        #region Properties
+
         private string _name;
         private int _currentHitPoints;
         private int _maximumHitPoints;
@@ -20,7 +20,7 @@ namespace Engine.Models
         public string Name
         {
             get { return _name; }
-            set
+            private set
             {
                 _name = value;
                 OnPropertyChanged();
@@ -30,7 +30,7 @@ namespace Engine.Models
         public int CurrentHitPoints
         {
             get { return _currentHitPoints; }
-            set
+            private set
             {
                 _currentHitPoints = value;
                 OnPropertyChanged();
@@ -50,7 +50,7 @@ namespace Engine.Models
         public int Gold
         {
             get { return _gold; }
-            set
+            private set
             {
                 _gold = value;
                 OnPropertyChanged();
@@ -114,7 +114,7 @@ namespace Engine.Models
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
 
         public List<GameItem> Weapons =>
-            Inventory.Where(i => i.Category ==  GameItem.ItemCategory.Weapon).ToList();
+            Inventory.Where(i => i.Category == GameItem.ItemCategory.Weapon).ToList();
 
         public List<GameItem> Consumables =>
             Inventory.Where(i => i.Category == GameItem.ItemCategory.Consumable).ToList();
@@ -123,11 +123,13 @@ namespace Engine.Models
 
         public bool IsDead => CurrentHitPoints <= 0;
 
+        #endregion
+
         public event EventHandler<string> OnActionPerformed;
         public event EventHandler OnKilled;
 
-        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints,
-            int gold, int level = 1)
+        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, 
+                               int gold, int level = 1)
         {
             Name = name;
             MaximumHitPoints = maximumHitPoints;
@@ -195,7 +197,7 @@ namespace Engine.Models
         {
             Inventory.Add(item);
 
-            if (item.IsUnique)
+            if(item.IsUnique)
             {
                 GroupedInventory.Add(new GroupedInventoryItem(item, 1));
             }
@@ -218,8 +220,8 @@ namespace Engine.Models
         {
             Inventory.Remove(item);
 
-            GroupedInventoryItem groupedInventoryItemToRemove = item.IsUnique ?
-                GroupedInventory.FirstOrDefault(gi => gi.Item == item) :
+            GroupedInventoryItem groupedInventoryItemToRemove = item.IsUnique ? 
+                GroupedInventory.FirstOrDefault(gi => gi.Item == item) : 
                 GroupedInventory.FirstOrDefault(gi => gi.Item.ItemTypeID == item.ItemTypeID);
 
             if(groupedInventoryItemToRemove != null)
@@ -239,6 +241,32 @@ namespace Engine.Models
             OnPropertyChanged(nameof(HasConsumable));
         }
 
+        public void RemoveItemsFromInventory(List<ItemQuantity> itemQuantities)
+        {
+            foreach (ItemQuantity itemQuantity in itemQuantities)
+            {
+                for (int i = 0; i < itemQuantity.Quantity; i++)
+                {
+                    RemoveItemFromInventory(Inventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
+                }
+            }
+        }
+
+        public bool HasAllTheseItems(List<ItemQuantity> items)
+        {
+            foreach(ItemQuantity item in items)
+            {
+                if(Inventory.Count(i => i.ItemTypeID == item.ItemID) < item.Quantity)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        #region Private functions
+
         private void RaiseOnKilledEvent()
         {
             OnKilled?.Invoke(this, new System.EventArgs());
@@ -248,5 +276,7 @@ namespace Engine.Models
         {
             OnActionPerformed?.Invoke(this, result);
         }
+
+        #endregion
     }
 }
